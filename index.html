@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VecindApp - La solución digital para modernizar la gestión de su organización comunitaria. Aumente la participación y agilice procesos administrativos.">
+    <title>VecindApp - Fortaleciendo Organizaciones Comunitarias</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #00897B;
+            --color-primary-shade: #00796c;
+            --color-primary-tint: #1a9589;
+            --color-secondary: #2C3E50;
+            --color-secondary-shade: #273746;
+            --color-light: #F5F5DC;
+            --color-white: #ffffff;
+            --color-text: #000000;
+            --color-text-light: #666666;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header y Navegación */
+        header {
+            background-color: var(--color-secondary);
+            color: var(--color-white);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 65px;
+            width: auto;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--color-primary-tint);
+        }
+
+        /* Hero Section - Gancho */
+        .hero {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-shade) 100%);
+            color: var(--color-white);
+            padding: 150px 2rem 100px;
+            text-align: center;
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .hero-logo {
+            max-width: 250px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero .hero-logo img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero .hook-text {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero .hook-question {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--color-primary-tint);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .btn {
+            padding: 18px 45px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-primary-shade);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 137, 123, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-white);
+            border: 2px solid var(--color-white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-white);
+            color: var(--color-secondary);
+        }
+
+        /* Secciones */
+        section {
+            padding: 80px 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--color-secondary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--color-text-light);
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Problema Section */
+        .problem {
+            background-color: var(--color-white);
+        }
+
+        .problem-intro {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--color-text-light);
+            margin-bottom: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background-color: #fff5f5;
+            border-left: 5px solid #eb445a;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .problem-card h3 {
+            color: #eb445a;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .problem-card p {
+            color: var(--color-text-light);
+            line-height: 1.7;
+        }
+
+        .problem-impact {
+            background: linear-gradient(135deg, #ff6b6b 0%, #eb445a 100%);
+            color: var(--color-white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .problem-impact h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .problem-impact p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        /* Solución Section */
+        .solution {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-shade) 100%);
+            color: var(--color-white);
+        }
+
+        .solution-intro {
+            text-align: center;
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .solution-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .solution-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-white);
+        }
+
+        .solution-text p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .solution-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .solution-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .solution-features li::before {
+            content: '✓';
+            width: 35px;
+            height: 35px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .solution-image {
+            text-align: center;
+        }
+
+        .solution-image img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .modular-badge {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 2rem;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Premium Section */
+        .premium {
+            background-color: var(--color-white);
+        }
+
+        .premium-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .premium-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-secondary);
+        }
+
+        .premium-text .premium-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: var(--color-secondary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .premium-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--color-text-light);
+        }
+
+        .premium-modules {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .premium-modules li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--color-text);
+        }
+
+        .premium-modules li::before {
+            content: '⭐';
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .premium-modules li strong {
+            color: var(--color-primary);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .premium-image {
+            text-align: center;
+        }
+
+        .premium-image img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Quiénes Somos Section */
+        .about-us {
+            background-color: var(--color-light);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            background-color: var(--color-white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-member-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-shade) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 3rem;
+            color: var(--color-white);
+        }
+
+        .team-member h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-secondary);
+        }
+
+        .team-member .role {
+            font-size: 1.1rem;
+            color: var(--color-primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member .studies {
+            font-size: 1rem;
+            color: var(--color-text-light);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .team-member .affiliation {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Certificados Highlight */
+        .certificates-highlight {
+            background-color: var(--color-light);
+        }
+
+        .certificates-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .certificates-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-secondary);
+        }
+
+        .certificates-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--color-text-light);
+        }
+
+        .certificates-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .certificates-features li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: var(--color-text-light);
+        }
+
+        .certificates-features li::before {
+            content: '→';
+            width: 30px;
+            height: 30px;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .certificates-image img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Beneficios Section */
+        .benefits {
+            background-color: var(--color-white);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, var(--color-light) 0%, var(--color-white) 100%);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            color: var(--color-white);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-secondary);
+        }
+
+        .benefit-card p {
+            color: var(--color-text-light);
+            line-height: 1.6;
+        }
+
+        /* Caso de Éxito */
+        .testimonial {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-shade) 100%);
+            color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .testimonial-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-white);
+        }
+
+        .testimonial-header .organization-name {
+            font-size: 1.5rem;
+            color: var(--color-primary-tint);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial-header .organization-detail {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .testimonial-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .result-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .result-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .result-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-card p {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Screenshots */
+        .screenshots {
+            background-color: var(--color-light);
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .screenshot-item {
+            background-color: var(--color-white);
+            padding: 1rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-shade) 100%);
+            color: var(--color-white);
+            text-align: center;
+            padding: 100px 2rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-white);
+        }
+
+        .cta-section p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-quote {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin: 3rem 0 2rem;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid var(--color-white);
+            border-radius: 10px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Info Section */
+        .info {
+            background-color: var(--color-white);
+        }
+
+        .info-content {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-shade) 100%);
+            padding: 4rem 2rem;
+            border-radius: 15px;
+            color: var(--color-white);
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .info-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .duoc-logo-container {
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .duoc-logo-container img {
+            max-height: 80px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Gallery */
+        .all-in-chile {
+            background-color: var(--color-light);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--color-white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            color: var(--color-secondary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            color: var(--color-text-light);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .contact-details {
+            background-color: var(--color-light);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--color-white);
+            flex-shrink: 0;
+        }
+
+        .contact-item-content h4 {
+            color: var(--color-secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-item-content p {
+            color: var(--color-text-light);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .contact-item-content a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .contact-item-content a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            background-color: var(--color-light);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--color-secondary);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background-color: var(--color-white);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group button:hover {
+            background-color: var(--color-primary-shade);
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+
+        .form-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-secondary);
+            color: var(--color-white);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--color-white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-primary-tint);
+        }
+
+        .footer-logo {
+            margin: 2rem 0;
+        }
+
+        .footer-logo img {
+            max-height: 60px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                padding: 120px 1rem 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .hook-text {
+                font-size: 1.1rem;
+            }
+
+            .hero .hook-question {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .solution-content,
+            .certificates-content,
+            .premium-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .problem-grid,
+            .benefits-grid,
+            .testimonial-results,
+            .screenshots-grid,
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+
+            .cta-section p {
+                font-size: 1.2rem;
+            }
+
+            .cta-quote {
+                font-size: 1.1rem;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="assets/images/logo y nombre.png" alt="VecindApp Logo" onerror="this.src='assets/images/logo.png'">
+            </div>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#problema">El Problema</a></li>
+                <li><a href="#solucion">La Solución</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#caso-exito">Caso de Éxito</a></li>
+                <li><a href="#quienes-somos">Quiénes Somos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section - Gancho -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="assets/images/logo y nombre horizontal.png" alt="VecindApp - Tu Voz en la Comunidad" onerror="this.src='assets/images/logo.png'">
+            </div>
+            <h1>Fortaleciendo Organizaciones Comunitarias</h1>
+            <p class="hook-text">
+                La ONU dice que las tecnologías digitales son la innovación que más rápido ha avanzado 
+                en la historia: llegaron al 50% de la población en solo 20 años.
+            </p>
+            <p class="hook-question">
+                ¿Les ha pasado que aunque en Chile casi todos tenemos internet, muchas organizaciones 
+                comunitarias siguen gestionándose con papeles, carteles y WhatsApp?
+            </p>
+            <p class="hook-text">
+                Nosotros lo vivimos y vimos cómo afecta la organización y la participación en las 
+                juntas de vecinos y clubes deportivos.
+            </p>
+            <div class="cta-buttons">
+                <a href="#solucion" class="btn btn-primary">Conocer la Solución</a>
+                <a href="#caso-exito" class="btn btn-secondary">Ver Resultados Reales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problema Section -->
+    <section id="problema" class="problem">
+        <div class="container">
+            <h2 class="section-title">El Problema que Enfrentamos</h2>
+            <p class="problem-intro">
+                Trabajamos con la <strong>Junta de Vecinos Portal de Puerto Montt</strong>, con más de 200 socios, 
+                y vimos esto de cerca:
+            </p>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>⏱️ Certificados Tardíos</h3>
+                    <p>Los certificados tardan días en emitirse, generando esperas innecesarias y descontento entre los vecinos.</p>
+                </div>
+
+                <div class="problem-card">
+                    <h3>📋 Convocatorias Desapercibidas</h3>
+                    <p>Las convocatorias en carteles pasan desapercibidas, resultando en baja asistencia a eventos y reuniones importantes.</p>
+                </div>
+
+                <div class="problem-card">
+                    <h3>👥 Baja Participación</h3>
+                    <p>Muchos vecinos no participan porque no se enteran a tiempo de las actividades y oportunidades de su comunidad.</p>
+                </div>
+
+                <div class="problem-card">
+                    <h3>📄 Información Desorganizada</h3>
+                    <p>La información en papel se pierde o no está actualizada, dificultando la toma de decisiones y la gestión eficiente.</p>
+                </div>
+            </div>
+
+            <div class="problem-impact">
+                <h3>Todo esto genera:</h3>
+                <p>Desorganización, baja participación y frustración en quienes organizan y participan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solución Section -->
+    <section id="solucion" class="solution">
+        <div class="container">
+            <div class="solution-intro">
+                <h2 class="section-title" style="color: var(--color-white);">La Solución: VecindApp</h2>
+                <p>
+                    Por eso creamos VecindApp, una aplicación móvil diseñada para facilitar la gestión 
+                    de su organización y aumentar la participación.
+                </p>
+            </div>
+
+            <div class="solution-content">
+                <div class="solution-text">
+                    <h2>¿Qué pueden hacer con VecindApp?</h2>
+                    
+                    <ul class="solution-features">
+                        <li>Emitir certificados con validez legal al instante</li>
+                        <li>Gestionar socios y directiva de manera sencilla</li>
+                        <li>Publicar noticias, avisos y convocatorias que todos reciban</li>
+                        <li>Registrar asistencia a eventos con código QR</li>
+                        <li>Manejar finanzas y generar reportes automáticos</li>
+                    </ul>
+
+                    <div class="modular-badge">🔧 Modular y Flexible - Activen solo lo que necesiten</div>
+                    
+                    <p style="margin-top: 2rem; font-size: 1.1rem; opacity: 0.95;">
+                        Cada organización activa solo lo que necesita. Las organizaciones pequeñas pueden 
+                        empezar con funciones básicas y, si crecen, añadir más herramientas sin complicaciones.
+                    </p>
+                </div>
+                <div class="solution-image">
+                    <img src="assets/images/menu app.png" alt="VecindApp en acción" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Modules Section -->
+    <section class="premium">
+        <div class="container">
+            <div class="premium-content">
+                <div class="premium-text">
+                    <span class="premium-badge">💎 Suscripción Premium</span>
+                    <h2>Mejoras Próximas</h2>
+                    <p>
+                        Estamos trabajando constantemente para ofrecer herramientas adicionales que 
+                        fortalezcan aún más la gestión de su organización comunitaria.
+                    </p>
+                    
+                    <ul class="premium-modules">
+                        <li>
+                            <strong>Módulo de Finanzas</strong>
+                            <span>Gestión completa de finanzas, presupuestos, cuentas y reportes financieros automatizados para su organización.</span>
+                        </li>
+                        <li>
+                            <strong>Módulo de Votaciones y Encuestas</strong>
+                            <span>Realice votaciones digitales y encuestas a sus socios de manera segura, transparente y eficiente.</span>
+                        </li>
+                    </ul>
+
+                    <p style="margin-top: 2rem; font-size: 1rem; color: var(--color-text-light); font-style: italic;">
+                        Estos módulos estarán disponibles próximamente con una suscripción premium, 
+                        permitiendo a las organizaciones acceder a herramientas avanzadas de gestión.
+                    </p>
+                </div>
+                <div class="premium-image">
+                    <div style="width: 100%; height: 400px; background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-shade) 100%); border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; text-align: center; padding: 2rem;">
+                        <div>
+                            <div style="font-size: 4rem; margin-bottom: 1rem;">💎</div>
+                            <p>Próximamente: Módulos Premium</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificados Highlight -->
+    <section class="certificates-highlight">
+        <div class="container">
+            <div class="certificates-content">
+                <div class="certificates-text">
+                    <h2>📄 Certificados Digitales: Todo en un Solo Lugar</h2>
+                    <p>
+                        <strong>La solución completa para certificados</strong>: solicitar, pagar y descargar 
+                        directamente desde la aplicación.
+                    </p>
+                    <ul class="certificates-features">
+                        <li>Solicitud digital rápida y sencilla</li>
+                        <li>Pago integrado y seguro</li>
+                        <li>Descarga inmediata con validez legal</li>
+                        <li>Sin papeles, sin esperas, sin complicaciones</li>
+                    </ul>
+                    <p style="margin-top: 1.5rem; font-weight: 600; color: var(--color-primary);">
+                        Todo el proceso en la misma aplicación, optimizando tiempo y recursos.
+                    </p>
+                </div>
+                <div class="certificates-image">
+                    <img src="assets/images/inicio.png" alt="Certificados en VecindApp" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios Section -->
+    <section id="beneficios" class="benefits">
+        <div class="container">
+            <h2 class="section-title">Beneficios para Su Organización</h2>
+            <p class="section-subtitle">Resultados tangibles que transforman la gestión comunitaria</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">⏰</div>
+                    <h3>Menos Tiempo en Trámites</h3>
+                    <p>Reduzca significativamente el tiempo dedicado a trámites administrativos, permitiéndole enfocarse en lo que realmente importa.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">📢</div>
+                    <h3>Vecinos Mejor Informados</h3>
+                    <p>Mantenga a todos sus vecinos informados y participativos mediante comunicaciones claras y oportunas.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔒</div>
+                    <h3>Información Segura</h3>
+                    <p>Toda la información de su organización está protegida y siempre disponible, sin riesgo de pérdida o deterioro.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">💬</div>
+                    <h3>Comunicación Eficiente</h3>
+                    <p>Establezca canales de comunicación claros y eficientes que lleguen a todos los miembros de su organización.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Caso de Éxito -->
+    <section id="caso-exito" class="testimonial">
+        <div class="container">
+            <div class="testimonial-content">
+                <div class="testimonial-header">
+                    <h2>Prueba Real</h2>
+                    <div class="organization-name">Junta de Vecinos Portal de Puerto Montt</div>
+                    <div class="organization-detail">+200 socios • Puerto Montt, Chile</div>
+                    <p style="margin-top: 2rem; font-size: 1.2rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                        Lo probamos con esta organización y los resultados fueron claros:
+                    </p>
+                </div>
+
+                <div class="testimonial-results">
+                    <div class="result-card">
+                        <div class="result-icon">⚡</div>
+                        <h3>Procesos Más Ágiles</h3>
+                        <p>Los trámites administrativos se aceleraron significativamente, mejorando la eficiencia de la organización.</p>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-icon">📈</div>
+                        <h3>Mayor Participación</h3>
+                        <p>El aumento en la participación de vecinos fue notable gracias a mejores canales de comunicación.</p>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-icon">✅</div>
+                        <h3>Información Confiable</h3>
+                        <p>Toda la información quedó centralizada y actualizada, facilitando la toma de decisiones.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="screenshots">
+        <div class="container">
+            <h2 class="section-title">Conozca la Interfaz</h2>
+            <p class="section-subtitle">Diseñada para ser intuitiva y fácil de usar</p>
+            
+            <div class="screenshots-grid">
+                <div class="screenshot-item">
+                    <img src="assets/images/inicio.png" alt="Pantalla de inicio" onerror="this.style.display='none'">
+                </div>
+                <div class="screenshot-item">
+                    <img src="assets/images/menu app.png" alt="Menú de la aplicación" onerror="this.style.display='none'">
+                </div>
+                <div class="screenshot-item">
+                    <img src="assets/images/gestion socios.png" alt="Gestión de socios" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Queremos que Su Organización También se Beneficie</h2>
+            <p>
+                VecindApp les da las herramientas para fortalecerse, agilizar su gestión y conectar mejor con sus vecinos.
+            </p>
+            
+            <div class="cta-quote">
+                "Cuando fortalecemos a las comunidades, fortalecemos Chile entero. 
+                Súmense a VecindApp y hagámoslo juntos."
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#contacto" class="btn btn-primary" style="background-color: var(--color-white); color: var(--color-primary);">
+                    Contactar para Demo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- All In Chile Gallery -->
+    <section class="all-in-chile">
+        <div class="container">
+            <h2 class="section-title">🏆 Finalistas All In Chile 2025</h2>
+            <p class="section-subtitle">Reconocimiento a la innovación en tecnología comunitaria</p>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="assets/images/Imagen de WhatsApp 2025-11-19 a las 14.15.31_2a895b18.jpg" alt="All In Chile 2025" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/Imagen de WhatsApp 2025-11-19 a las 14.15.31_9bcb6c83.jpg" alt="All In Chile 2025" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/Imagen de WhatsApp 2025-11-19 a las 14.15.31_56c4e3a5.jpg" alt="All In Chile 2025" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiénes Somos Section -->
+    <section id="quienes-somos" class="about-us">
+        <div class="container">
+            <h2 class="section-title">Quiénes Somos</h2>
+            <p class="section-subtitle">El equipo detrás de VecindApp</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-member-icon">👩‍💻</div>
+                    <h3>Paloma Tamayo</h3>
+                    <div class="role">Analista Programadora Computacional</div>
+                    <div class="studies">
+                        Estudiante Ingeniería en Informática
+                    </div>
+                    <div class="affiliation">
+                        Socia JJVV Villa Antillanca
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member-icon">👩‍💻</div>
+                    <h3>Angelina Mendoza</h3>
+                    <div class="role">Analista Programadora Computacional</div>
+                    <div class="studies">
+                        Estudiante Ingeniería en Informática
+                    </div>
+                    <div class="affiliation">
+                        Socia JJVV Portal de Puerto Montt<br>
+                        Secretaria CMPA Escuela Cayenel
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info">
+        <div class="container">
+            <div class="info-content">
+                <h2>Un Proyecto con Historia</h2>
+                <p>
+                    VecindApp es un proyecto desarrollado por alumnas de <strong>Duoc UC</strong>, 
+                    creado con el apoyo y guía de la institución.
+                </p>
+                <p>
+                    Este proyecto representa nuestro compromiso con la innovación tecnológica 
+                    y el desarrollo de soluciones que impacten positivamente en la comunidad.
+                </p>
+                
+                <div class="duoc-logo-container">
+                    <img src="assets/images/logo duoc.png" alt="Duoc UC Logo" onerror="this.style.display='none'">
+                </div>
+                
+                <div class="badges">
+                    <div class="badge">🏆 Finalistas All In Chile 2025</div>
+                    <div class="badge">🎓 Proyecto Duoc UC</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contáctenos</h2>
+            <p class="section-subtitle">Hablemos sobre cómo VecindApp puede transformar su organización</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>¿Listos para modernizar su organización?</h3>
+                    <p>
+                        Si quiere conocer más sobre VecindApp, solicitar una demostración o tiene 
+                        alguna pregunta sobre cómo podemos ayudar a su organización comunitaria, 
+                        estaremos encantados de conversar con usted.
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-item-content">
+                                <h4>Email</h4>
+                                <p><a href="mailto:ange.mendoza@duocuc.cl">ange.mendoza@duocuc.cl</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">🎓</div>
+                            <div class="contact-item-content">
+                                <h4>Institución</h4>
+                                <p>Duoc UC</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">💬</div>
+                            <div class="contact-item-content">
+                                <h4>Respuesta</h4>
+                                <p>Te responderemos en un plazo de 24-48 horas</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-item-content">
+                                <h4>Instagram</h4>
+                                <p><a href="https://www.instagram.com/vecind_app" target="_blank">@vecind_app</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nombre / Organización *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Asunto *</label>
+                            <input type="text" id="subject" name="subject" placeholder="Ej: Solicitud de demo para Junta de Vecinos" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensaje *</label>
+                            <textarea id="message" name="message" placeholder="Cuéntenos sobre su organización y cómo podemos ayudarle..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit">Enviar Mensaje</button>
+                        </div>
+                        
+                        <div class="form-message" id="formMessage"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/images/logo y nombre horizontal.png" alt="VecindApp" onerror="this.style.display='none'">
+            </div>
+            <p><strong>VecindApp</strong> - Fortaleciendo Organizaciones Comunitarias</p>
+            <p>Proyecto desarrollado por alumnas de Duoc UC</p>
+            <div class="footer-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#problema">El Problema</a>
+                <a href="#solucion">La Solución</a>
+                <a href="#beneficios">Beneficios</a>
+                <a href="#caso-exito">Caso de Éxito</a>
+                <a href="#quienes-somos">Quiénes Somos</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            <div style="margin-top: 2rem;">
+                <a href="https://www.instagram.com/vecind_app" target="_blank" style="color: var(--color-white); text-decoration: none; font-size: 1.2rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <span>📱</span>
+                    <span>@vecind_app</span>
+                </a>
+            </div>
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">
+                © 2025 VecindApp. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Formulario de contacto
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Crear el enlace mailto
+            const mailtoLink = `mailto:ange.mendoza@duocuc.cl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Nombre/Organización: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`)}`;
+            
+            // Abrir el cliente de correo
+            window.location.href = mailtoLink;
+            
+            // Mostrar mensaje de éxito
+            const formMessage = document.getElementById('formMessage');
+            formMessage.textContent = '¡Mensaje enviado! Se abrirá tu cliente de correo.';
+            formMessage.className = 'form-message success';
+            
+            // Limpiar formulario
+            this.reset();
+            
+            // Ocultar mensaje después de 5 segundos
+            setTimeout(() => {
+                formMessage.className = 'form-message';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
